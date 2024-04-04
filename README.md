@@ -29,9 +29,7 @@
   <h3 align="center">A01028033_TC2005B</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    Work repository for activities made in TC2005B
 </p>
 </div>
 
@@ -41,7 +39,7 @@
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Finish setting up folders
+- [x] Finish setting up folders
 - [x] Finish setting up README.md
 - [x] Finish setting up .gitignore
 - [ ] Test terminal compiling for necessary files
