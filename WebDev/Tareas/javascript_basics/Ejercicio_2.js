@@ -22,3 +22,10 @@ let array = [5, 3, 8, 2, 1, 4];
 bubbleSort(array);
 console.log(array); // [1, 2, 3, 4, 5, 8]
 
+let arr2 = [5, 3, 8, 2, 1, 4, 7];
+bubbleSort(arr2);
+console.log(arr2); // [1, 2, 3, 4, 5, 7, 8]
+
+let arr3 = [5, 3, 8, 2, 1, 4, 7, 6];
+bubbleSort(arr3);
+console.log(arr3); // [1, 2, 3, 4, 5, 6, 7, 8]

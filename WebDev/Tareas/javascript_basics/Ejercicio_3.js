@@ -21,6 +21,13 @@ function revererseArray(arr) {
 let arr = [1, 2, 3, 4, 5];
 console.log(revererseArray(arr));
 
+let arr2 = [5, 4, 3, 2, 1];
+console.log(revererseArray(arr2));
+
+let arr3 = [1, 2, 3, 4, 5, 6];
+console.log(revererseArray(arr3));
+
+
 function revertArraySelf(arr) {
   // Reverses an array within itself
   for (let i = 0; i < arr.length / 2; i++) {
@@ -31,3 +38,5 @@ function revertArraySelf(arr) {
 
 
 console.log(revertArraySelf(arr));
+console.log(revertArraySelf(arr2));
+console.log(revertArraySelf(arr3));

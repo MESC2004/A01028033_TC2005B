@@ -21,4 +21,6 @@ function firstChar(string) {
 let string = 'abacddbec';
 console.log(firstChar(string));
 
+console.log(firstChar('bbbcdas'));
 
+console.log(firstChar('abacddbec'));
