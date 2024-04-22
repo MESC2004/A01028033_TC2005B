@@ -1,2 +1,8 @@
 .vscode
 .DS_Store
+
+# Ignore all .aux and .log files
+
+*.aux
+*.log
+
