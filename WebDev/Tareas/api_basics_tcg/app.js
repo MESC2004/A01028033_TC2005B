@@ -5,7 +5,31 @@
 import express from 'express';
 const port = 5000;
 const app = express();
-let card_list = [{"id": "1", "name": "Faust"}];
+let card_list = [
+{
+  "id": 1, 
+  "name": "Faust", 
+  "type_id": 1, 
+  "type_name": "Identity", 
+  "hp": 15, 
+  "speed": 3, 
+  "speed_cost": "NULL", 
+  "atk": "NULL", 
+  "def": "NULL"
+},
+{
+  "id": 2,
+  "name": "Mephistopheles",
+  "type_id": 2,
+  "type_name": "Attack Card",
+  "hp": "NULL",
+  "speed": "NULL",
+  "speed_cost": 2,
+  "atk": 4,
+  "def": "NULL"
+}
+];
+
 app.use(express.json());
 
 app.get("/available_cards", (req, res) => {
