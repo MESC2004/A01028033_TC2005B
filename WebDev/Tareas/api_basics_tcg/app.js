@@ -53,21 +53,35 @@ app.get("/lookup/:id", (req, res) => {
   }
 });  
 
-app.post("/add_card", (req, res) => {
-  const card = req.body;
 
-  for (let i = 0; i < card_template.length; i++) {
-    if (!card.hasOwnProperty(card_template[i])) {
-      res.status(200).send(`Card is missing ${card_template[i]}.`);
+app.post("/add_card", (req, res) => {
+  const cards_to_add = req.body;
+  let inserted = [];
+
+  if (!Array.isArray(cards_to_add)) {
+    cards_to_add = [cards_to_add];
+  }
+
+  cards_to_add.forEach((cards_to_add) => {
+    const missingFields = card_template.filter((field) => !cards_to_add.hasOwnProperty(field));
+    if (missingFields.length > 0) {
+      res.status(200).send(`Missing fields: ${missingFields.join(", ")}`,);
       return;
     }
-  }
-  if (card_list.find((c) => c.id === card.id)) {
-    res.status(200).send("Card already exists.");
-  } else { 
-    card_list.push(card);
-    res.status(200).send("Card added into card list.");
-}});
+
+    const existingCard = card_list.find((card) => card.id === cards_to_add.id);
+    if (existingCard) {
+      res.status(200).send(`Card with id ${cards_to_add.id} already exists.`);
+      return;
+    }
+
+    card_list.push(cards_to_add);
+    inserted.push(cards_to_add);
+  });
+
+  res.status(200).send("Cards added successfully.");
+});
+
 
 app.delete("/delete_card/:id", (req, res) => {
   const id = req.params.id;
