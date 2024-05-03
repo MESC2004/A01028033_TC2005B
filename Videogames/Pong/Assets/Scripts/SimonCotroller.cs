@@ -16,7 +16,12 @@ public class SimonCotroller : MonoBehaviour
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform buttonParent;
     [SerializeField] TMP_Text SCORE;
-    
+
+    [SerializeField] TMP_Text HISCORE;
+    [SerializeField] int hiscore = 0;
+
+    private float lastClickTime = 0f;
+  
 
     // Start is called before the first frame update
     void Start()
@@ -43,26 +48,45 @@ public class SimonCotroller : MonoBehaviour
     }
 
     public void ButtonPressed(int index) {
-      if (PlayerTurn) {
-        if (index == sequence[counter++]) {
-          buttons[index].Highlight();
-          if (counter == sequence.Count) {
-            PlayerTurn = false;
-            level++;
-            SCORE.text = level.ToString();
-            counter = 0;
-            addToSequence();
-          }
-        } else {
-          Debug.Log("Game Over.");
+    if (PlayerTurn) {
+        float timeSinceLastClick = Time.time - lastClickTime;
+        if (timeSinceLastClick > 3.0f) {
+            // The player took too long to click, they lose
+            Debug.Log("Game Over.");
+            SCORE.text = "Game Over. Click restart game to play again.";
+            if (level > hiscore) {
+                hiscore = level;
+                HISCORE.text = $"High Score: {level.ToString()}";
+            }
+            return;
         }
-      }
+        lastClickTime = Time.time;
+
+        if (index == sequence[counter++]) {
+            buttons[index].Highlight();
+            if (counter == sequence.Count) {
+                PlayerTurn = false;
+                level++;
+                SCORE.text = $"Score: {level.ToString()}";
+                counter = 0;
+                addToSequence();
+            }
+        } else {
+            Debug.Log("Game Over.");
+            SCORE.text = "Game Over. Click restart game to play again.";
+            if (level > hiscore) {
+                hiscore = level;
+                HISCORE.text = $"High Score: {level.ToString()}";
+            }
+        }
     }
+}
 
 
     void addToSequence() {
       // Adds a new button id to the sequence
         sequence.Add(Random.Range(0, buttons.Count));
+        delay -= 0.02f;
         StartCoroutine(playSequence());
     }
 
@@ -75,5 +99,19 @@ public class SimonCotroller : MonoBehaviour
     }
     PlayerTurn = true;
     }
+
+    public void ResetGame() {
+      // Resets the game
+      delay = 0.5f;
+      SCORE.text = "Score: 0";
+      sequence.Clear();
+      level = 0;
+      counter = 0;
+      PlayerTurn = false;
+      lastClickTime = Time.time;
+      addToSequence();
+    }
 }
+
+
 
