@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class SimonButton : MonoBehaviour
 {
-  Color originalColor;
   [SerializeField] float delay;
+  Color originalColor;
+  AudioSource audio;
     // Start is called before the first frame update
-    void Start()
+    public void Init(int index)
     {
-      originalColor = GetComponent<Image>().material.color;
+      originalColor = GetComponent<Image>().color;
+      audio = GetComponent<AudioSource>();
+      GetComponent<AudioSource>().clip = Resources.Load<AudioClip>($"Audio/{index}");
     }
 
     public void Highlight() {
+      audio.Play();
       StartCoroutine(ChangeColor());
     }
 
