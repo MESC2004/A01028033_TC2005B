@@ -21,7 +21,46 @@ public class SimonCotroller : MonoBehaviour
     [SerializeField] int hiscore = 0;
 
     private float lastClickTime = 0f;
-  
+
+    string apiData = @"
+    {
+        ""buttons"": [
+          {
+            ""id"": 0,
+            ""r"": 1.0,
+            ""g"": 0.5,
+            ""b"": 0
+          },
+          {
+            ""id"": 0,
+            ""r"": 1.0,
+            ""g"": 0.5,
+            ""b"": 0
+          },
+          {
+            ""id"": 0,
+            ""r"": 1.0,
+            ""g"": 0.5,
+            ""b"": 0
+          },
+          {
+            ""id"": 0,
+            ""r"": 1.0,
+            ""g"": 0.5,
+            ""b"": 0
+          },
+          {
+            ""id"": 0,
+            ""r"": 1.0,
+            ""g"": 0.5,
+            ""b"": 0
+          }
+        ]
+    }
+  ";
+
+  [SerializeField] ColorButtons allButtons;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +72,18 @@ public class SimonCotroller : MonoBehaviour
 
     void PrepareButtons()
     {
-      for (int i=0; i<numButtons; i++) {
+      // Convert the string into an object
+      allButtons = JsonUtility.FromJson<ColorButtons>(apiData);
+
+      foreach (ColorButton buttonData in allButtons.buttons) {
+
+        GameObject newButton = Instantiate(buttonPrefab, buttonParent);
+        newButton.GetComponent<Image>().color = new Color(buttonData.r, buttonData.g, buttonData.b);
+        newButton.GetComponent<SimonButton>().Init(buttonData.id);
+        newButton.GetComponent<Button>().onClick.AddListener(() => ButtonPressed(buttonData.id));
+        buttons.Add(newButton.GetComponent<SimonButton>());
+      }
+      /*for (int i=0; i<numButtons; i++) {
         int index = i;
         // create copies of buttons
         GameObject newButton = Instantiate(buttonPrefab, buttonParent);
@@ -43,6 +93,7 @@ public class SimonCotroller : MonoBehaviour
         buttons.Add(newButton.GetComponent<SimonButton>());
         buttons[i].gameObject.GetComponent<Button>().onClick.AddListener(() => ButtonPressed(index));
       }
+      */
       // Start the game with the initial button
       addToSequence();  
     }
