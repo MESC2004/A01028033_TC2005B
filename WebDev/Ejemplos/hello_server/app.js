@@ -3,15 +3,17 @@
 
 
 import express from 'express';
-const port = 5000;
+import fs from "fs";
+
+const port = 3000;
 const app = express();
 let card_list = [];
 app.use(express.json());
+app.use(express.static("public"));
 
-
-app.get("/name", (req, res) => {
-  const salute = "Hello from server";
-  res.status(200).send(salute);
+app.get("/", (req, res) => {
+  const file = fs.readFileSync("public/html/hello.html", "utf-8");
+  res.status(200).send(file);
 });
 
 app.get("/hello/:name", (req, res) => {
