@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 661328795}
   - component: {fileID: 661328796}
   - component: {fileID: 661328797}
+  - component: {fileID: 661328798}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -581,6 +582,16 @@ MonoBehaviour:
   SCORE: {fileID: 1483853662}
   HISCORE: {fileID: 347199870}
   hiscore: 0
+  apiData: "\r\n    {\r\n        \"buttons\": [\r\n          {\r\n            \"id\":
+    0,\r\n            \"r\": 1.0,\r\n            \"g\": 0.5,\r\n            \"b\":
+    0\r\n          },\r\n          {\r\n            \"id\": 0,\r\n            \"r\":
+    1.0,\r\n            \"g\": 0.5,\r\n            \"b\": 0\r\n          },\r\n         
+    {\r\n            \"id\": 0,\r\n            \"r\": 1.0,\r\n            \"g\":
+    0.5,\r\n            \"b\": 0\r\n          },\r\n          {\r\n            \"id\":
+    0,\r\n            \"r\": 1.0,\r\n            \"g\": 0.5,\r\n            \"b\":
+    0\r\n          },\r\n          {\r\n            \"id\": 0,\r\n            \"r\":
+    1.0,\r\n            \"g\": 0.5,\r\n            \"b\": 0\r\n          }\r\n       
+    ]\r\n    }\r\n  "
 --- !u!114 &661328797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,6 +604,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b040ccb5f38a5a04a9cae0692588d5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &661328798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661328794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8687bc6808d89774581ef1296fdc836a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: http://localhost:3000
+  getEndpoint: /buttons
 --- !u!1 &900409749
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1296,7 +1321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.85, y: -1.9}
   m_SizeDelta: {x: 780, y: 440}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1491795450

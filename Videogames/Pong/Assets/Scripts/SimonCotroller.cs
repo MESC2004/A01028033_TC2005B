@@ -22,7 +22,7 @@ public class SimonCotroller : MonoBehaviour
 
     private float lastClickTime = 0f;
 
-    string apiData = @"
+    public string apiData = @"
     {
         ""buttons"": [
           {
@@ -65,12 +65,13 @@ public class SimonCotroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       PrepareButtons();
+       //PrepareButtons();
+       GetComponent<APIConnection>().GetData();
     }
 
     // Update is called once per frame
 
-    void PrepareButtons()
+    public void PrepareButtons()
     {
       // Convert the string into an object
       allButtons = JsonUtility.FromJson<ColorButtons>(apiData);
