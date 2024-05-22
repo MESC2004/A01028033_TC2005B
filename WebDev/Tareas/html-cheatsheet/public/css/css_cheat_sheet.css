@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    padding: 0;
+    background-color: #210d2d;
+}
+
+.property-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #686868;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.property {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.property h2 {
+    margin-top: 0;
+}
+
+#border {
+    border: 2px solid #2b09a7;
+}
+
+#border-sides {
+    border-left: 4px solid red;
+    border-right: 4px solid blue;
+    border-top: 4px solid green;
+    border-bottom: 4px solid purple;
+}
+
+#border-radius {
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+#background-image {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/32/Ferret_2008.png');
+    background-size: cover;
+    height: 100px;
+}
+
+#color {
+    color: #ff6347; /* Tomato color */
+}
+
+#font {
+    font: italic bold 20px/30px Georgia, serif;
+}
+
+#font-family {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#font-style-weight {
+    font-style: italic;
+    font-weight: bold;
+}
+
+#width-height {
+    width: 200px;
+    height: 100px;
+    background-color: #87ceeb; 
+}
+
+#list-style {
+    list-style: square;
+    padding-left: 20px;
+}
+
+#list-style ul {
+    padding-left: 20px;
+}
+
+#margin {
+    margin: 20px;
+    background-color: #dcdcdc; 
+}
+
+#padding {
+    padding: 20px;
+    background-color: #dcdcdc; 
+}
+
+#overflow {
+    width: 150px;
+    height: 50px;
+    overflow: auto;
+    background-color: #dcdcdc; 
+}
+
+#overflow p {
+    width: 300px;
+}
+
+#display {
+    display: inline-block;
+    padding: 10px;
+    background-color: #ffebcd; 
+}
+
+#position {
+    position: relative;
+    top: 10px;
+    left: 20px;
+    background-color: #f08080; 
+}
+
+#filter {
+    filter: blur(2px);
+    background-color: #6bd6ee; 
+    padding: 20px;
+}
