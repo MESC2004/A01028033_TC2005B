@@ -8,7 +8,6 @@ public class APIConnection : MonoBehaviour
     [SerializeField] string url;
     [SerializeField] string getEndpoint;
 
-
     SimonCotroller controller;
 
     void Start() {

@@ -21,6 +21,11 @@ app.get("/css", (req, res) => {
   res.status(200).send(file);
 });
 
+app.get("/web-dev-course", (req, res) => {
+  const file = fs.readFileSync("public/html/web-development-course.html", "utf-8");
+  res.status(200).send(file);
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
