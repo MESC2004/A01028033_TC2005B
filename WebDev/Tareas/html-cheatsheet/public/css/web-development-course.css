@@ -1,0 +1,97 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+html, body {
+    /* Stops divs and header from being separated on the edges */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    /* Gets rid of top margin from initial header */
+    margin: 0px;
+}
+
+h2 {
+    /* Gets rid of top margin from initial header */
+    margin: 0px;
+}
+
+#flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#flex-cont-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav {
+    flex-direction: column;
+    color: white;
+    }
+
+header {
+    color:white;
+    background-color: #1d3e4b;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#sect_2 {
+    background-color: #BA7D2D;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 70px;
+}
+
+#sect_3 {
+    background-color: #1d3e4b;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 25px;
+}
+
+#sect_3 input[type=submit] {
+    background-color: #BA7D2D;
+    color: white;
+    border: none;
+}
+
+#sect_4 {
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 25px;
+}
+
+#img_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
