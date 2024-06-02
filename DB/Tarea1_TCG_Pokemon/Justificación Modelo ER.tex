@@ -21,7 +21,7 @@ El siguiente documento tiene como objetivo modelar un diagrama Entidad-Relación
 \section{Explicación de Entidades y Relaciones}
 
 \begin{itemize}
-  \item \textbf{Player:} \textit{Deck\_List, Active\_Deck} son llaves foráneas que hacenm referencia a la entidad \textit{Deck}. Un jugador puede tener múltiples mazos de cartas, pero solo uno activo. \textit{Deck\_List} es una lista de llaves foráneas que hacen referencia a la entidad \textit{Deck}. Los demás atributos son valores del usuario o jugador. 
+  \item \textbf{Player:} \textit{Active\_Deck} es una llave foránea con referencia a \textit{Deck}. Los demás atributos son valores del usuario o jugador. 
   \item \textbf{Deck\_Card:} \textit{Deck\_ID, Card\_ID} son llaves foráneas que hacen referencia a las entidades \textit{Deck} y \textit{Card} respectivamente. Un mazo puede tener múltiples cartas, y una carta puede estar en múltiples mazos. Esta tabla es una tabla intermedia conectando la relación muchos a muchos entre \textit{Deck} y \textit{Card}. 
   \item \textbf{Match:} \textit{Player1\_ID, Player2\_ID, Winner\_ID} son llaves foráneas que hacen referencia a la entidad \textit{Player}. Un partido tiene dos jugadores y un ganador. Esta relaci\'on es de uno a muchos. 
   \item \textbf{Card:} Esta entidad almacena informaci\'on de las cartas del juego. \textit{Card\_ID} es la llave primaria. \textit{Attack\_ID} es una llave foránea que hace referencia a la entidad \textit{Attack}, conteniendo la ionformaci\'on de los ataques de la carta. La relacion de \textit{Card} con \textit{Attack} es de uno a muchos. 
