@@ -140,6 +140,7 @@ public class SimonCotroller : MonoBehaviour
         sequence.Add(Random.Range(0, buttons.Count));
         delay -= 0.02f;
         StartCoroutine(playSequence());
+        
     }
 
     IEnumerator playSequence() {
@@ -150,6 +151,7 @@ public class SimonCotroller : MonoBehaviour
         yield return new WaitForSeconds(delay);
     }
     PlayerTurn = true;
+    lastClickTime = Time.time;
     }
 
     public void ResetGame() {
